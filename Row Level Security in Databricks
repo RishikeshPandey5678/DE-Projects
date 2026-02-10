@@ -1,0 +1,61 @@
+
+CREATE OR REPLACE TABLE temp_db.ent_hierarchy (
+    RM_Name STRING,
+    RM_Email STRING,
+    Branch_Head_Name STRING,
+    Branch_Head_Email STRING,
+    CH_SH_Name STRING,
+    CH_Email STRING
+);
+
+
+INSERT INTO ent_hierarchy VALUES
+('Ajay Ankush More','ajay.more@bank.com','SAGAR SHARAD DALVI','sagar.dalvi@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Akash Mohit','akash.mohit@bank.com','Yogesh Govardhandas Sachdev','yogesh.sachdev@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Assumptina P Britto','assumptina.britto@bank.com','Vinod Rasal','vinod.rasal@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Assumptina P Britto','assumptina.britto@bank.com','Vinod Rasal','vinod.rasal@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Deepa Rama Gowda','deepa.gowda@bank.com','Vinod Rasal','vinod.rasal@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Dhanashree Pradeep More','dhanashree.more@bank.com','Sharad Bhagwat Pawar','sharad.pawar@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Dhanashree Pradeep More','dhanashree.more@bank.com','Sharad Bhagwat Pawar','sharad.pawar@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Dhanashree Pradeep More','dhanashree.more@bank.com','Sharad Bhagwat Pawar','sharad.pawar@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Dheerendr','dheerendr@bank.com','ANVAY DESAI DESAI','anvay.desai@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+('Fort11TBA','fort11tba@bank.com','Sharad Bhagwat Pawar','sharad.pawar@bank.com','Abhishek Pandey','abhishekpandey3479@gmail.com'),
+
+('Inderjit Atindra Kannaujiya','inderjit.kannaujiya@bank.com','Soumyadip Sarkar','soumyadip.sarkar@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Jagruti Vilas Narkar','jagruti.narkar@bank.com','Gauri Deepak Naikar','gauri.naikar@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Kiran Ganesh Bhor','kiran.bhor@bank.com','Sita Shekhar Kunti','sita.kunti@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Nikhil Satish Tamanekar','nikhil.tamanekar@bank.com','Direct Reporting','direct.reporting@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Nirali Akash Rathod','nirali.rathod@bank.com','Mandla Ravi Kasaiah','mandla.kasaiah@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Parth Hitesh Chavan','parth.chavan@bank.com','Mandla Ravi Kasaiah','mandla.kasaiah@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Piyush Mishra','piyush.mishra@bank.com','Reena Juwet Dmello','reena.dmello@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Piyush Mishra','piyush.mishra@bank.com','Reena Juwet Dmello','reena.dmello@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Ruchi Ramchandra Singh','ruchi.singh@bank.com','Mandla Ravi Kasaiah','mandla.kasaiah@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Rudra Vala','rudra.vala@bank.com','Reena Juwet Dmello','reena.dmello@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Sanjana Yadav','sanjana.yadav@bank.com','Rohit Surve','rohit.surve@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Sanjana Yadav','sanjana.yadav@bank.com','Rohit Surve','rohit.surve@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Sarita Shah','sarita.shah@bank.com','Soumyadip Sarkar','soumyadip.sarkar@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Shreyash Baban Kamble','shreyash.kamble@bank.com','ANVAY DESAI DESAI','anvay.desai@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Shubham Rakesh Singh','shubham.singh@bank.com','Rohit Surve','rohit.surve@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Suraj Naresh Darji','suraj.darji@bank.com','Vinod Rasal','vinod.rasal@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Swapnil Mahadev Mangale','swapnil.mangale@bank.com','Sharad Bhagwat Pawar','sharad.pawar@bank.com','CH Direct to Amit S','amit.s@bank.com'),
+('Vipulkumar Arvind Pandey','vipulkumar.pandey@bank.com','Yogesh Govardhandas Sachdev','yogesh.sachdev@bank.com','CH Direct to Amit S','amit.s@bank.com');
+
+
+select * from temp_db.ent_hierarchy;
+
+
+-- select current_user();
+
+create or replace view temp_db.ent_hierarchy_view 
+as
+select * from temp_db.ent_hierarchy
+where rm_email = current_user()
+      or 
+      branch_head_email = current_user()
+      or 
+      ch_email = current_user();
+
+
+select * from temp_db.ent_hierarchy_view;
+
+-- drop table ent_hierarchy;

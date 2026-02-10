@@ -1,3 +1,4 @@
+#Row Level Security using Dynamic Views.
 
 CREATE OR REPLACE TABLE temp_db.ent_hierarchy (
     RM_Name STRING,
